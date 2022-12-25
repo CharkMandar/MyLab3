@@ -27,6 +27,15 @@ TEST(TQueue, can_push_element)
 	EXPECT_EQ(5, q.getBack());
 }
 
+TEST(TQueue, push_extends_memory_if_full)
+{
+	TQueue<int> s(2);
+	s.push(4);
+	s.push(3);
+	s.push(6);
+	EXPECT_EQ(3, s.getSize());
+}
+
 TEST(TQueue, can_pop_element)
 {
 	TQueue<int> q(2);

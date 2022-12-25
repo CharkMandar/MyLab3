@@ -37,8 +37,13 @@ public:
 	void push(const T& val)
 	{
 
-		if (isFull())
-			throw "Queue is full";
+		if (isFull()) {
+			T* tmpMem = new T[memSize * 2];
+			std::copy(pMem, pMem + memSize, tmpMem);
+			delete[] pMem;
+			this->pMem = tmpMem;
+			memSize *= 2;
+		}
 		if (this->front == -1)
 			this->front = 0;
 		if (back < memSize - 1)
