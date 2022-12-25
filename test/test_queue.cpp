@@ -45,6 +45,26 @@ TEST(TQueue, push_extends_memory_if_full)
 	EXPECT_EQ(3, s.getSize());
 }
 
+TEST(TQueue, correct_repack)
+{
+	TQueue<int> q(6);
+	q.push(1);
+	q.push(2);
+	q.push(3);
+	q.push(4);
+	
+	q.pop();
+	q.pop();
+
+	q.push(5);
+	q.push(6);
+	q.push(7);
+	q.push(8);
+
+	EXPECT_EQ(1, q.isFull());
+	EXPECT_EQ(8, q.getBack());
+	EXPECT_EQ(3, q.getFront());
+}
 TEST(TQueue, can_pop_element)
 {
 	TQueue<int> q(2);
