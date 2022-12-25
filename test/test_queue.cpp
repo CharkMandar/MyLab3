@@ -60,10 +60,10 @@ TEST(TQueue, correct_repack)
 	q.push(6);
 	q.push(7);
 	q.push(8);
+	q.push(9);
 
-	EXPECT_EQ(1, q.isFull());
-	EXPECT_EQ(8, q.getBack());
-	EXPECT_EQ(3, q.getFront());
+	EXPECT_EQ(9, q.getBack());
+	EXPECT_EQ(9, q.getFront());
 }
 TEST(TQueue, can_pop_element)
 {
