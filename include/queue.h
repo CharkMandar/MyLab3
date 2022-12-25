@@ -42,7 +42,7 @@ public:
 			std::copy(pMem, pMem + memSize, tmpMem);
 			delete[] pMem;
 			this->pMem = tmpMem;
-			memSize *= 2;
+			this->memSize *= 2;
 		}
 		if (this->front == -1)
 			this->front = 0;
@@ -57,7 +57,7 @@ public:
 
 	size_t getSize() const
 	{
-		return front + 1;
+		return this->back + 1;
 	}
 	bool isFull()
 	{
